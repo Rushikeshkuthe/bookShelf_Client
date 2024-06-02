@@ -31,7 +31,7 @@ export async function apiPOST(url,config={}){
     const accessToken =user?.accessToken;
     axiosApi.defaults.headers.common["Authorization"]=`Bearer ${accessToken}`;
     return await axiosApi
-    .get(url,{...config})
+    .post(url,{...config})
     .then((response)=> response)
     .catch((error)=>error.response);
 }
@@ -41,7 +41,7 @@ export async function apiPUT(url,config={}){
     const accessToken =user?.accessToken;
     axiosApi.defaults.headers.common["Authorization"]=`Bearer ${accessToken}`;
     return await axiosApi
-    .get(url,{...config})
+    .put(url,{...config})
     .then((response)=> response)
     .catch((error)=>error.response);
 }
@@ -51,7 +51,7 @@ export async function apiDELETE(url,config={}){
     const accessToken =user?.accessToken;
     axiosApi.defaults.headers.common["Authorization"]=`Bearer ${accessToken}`;
     return await axiosApi
-    .get(url,{...config})
+    .delete(url,{...config})
     .then((response)=> response)
     .catch((error)=>error.response);
 }
