@@ -45,7 +45,7 @@ function Dashboard() {
         <div className='w-full flex flex-col'>
             <div>
                     <spam className='text-white font-bold text-9xl'>
-                      Home 😒
+                      Home 🙂
                     </spam>
             </div>
 

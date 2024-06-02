@@ -69,7 +69,7 @@ const Signup = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className={`relative z-10 ${fullCentered}`}>
         <div className="bg-white bg-opacity-20 backdrop-blur-md p-8 rounded-lg shadow-lg max-w-md w-full">
-          <h2 className="text-2xl font-semibold text-white text-center mb-6">SIGNUP</h2>
+          <h1 className="text-5xl font-semibold text-white text-center mb-6">SIGNUP 🤩</h1>
           <form className="space-y-4" onSubmit={handleSignup}>
             <input
               type="text"
@@ -108,7 +108,7 @@ const Signup = () => {
               required
             />
             {error && <p className="text-red-500">{error}</p>}
-            <button type="submit" className="w-full p-3 rounded-lg bg-orange-500 text-white font-semibold" disabled={loading}>
+            <button type="submit" className="w-full p-3 rounded-lg bg-black text-white font-semibold" disabled={loading}>
               {loading ? 'Signing up...' : 'SIGNUP'}
             </button>
           </form>
@@ -116,7 +116,7 @@ const Signup = () => {
             <p className="text-center text-white mt-4">
               Already a member of Bookshelf?
             </p>
-            <a className='cursor-pointer font-bold decoration-stone-50'>LOGIN</a>
+            <a className='cursor-pointer font-bold text-white '>LOGIN</a>
           </div>
         </div>
       </div>

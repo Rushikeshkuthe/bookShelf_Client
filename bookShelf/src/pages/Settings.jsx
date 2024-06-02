@@ -14,6 +14,7 @@ function Settings() {
       <span className='text-white font-bold text-9xl'>
             Settings 😒🤦‍♀️
           </span>
+          <p className="text-zinc-400">Too Much chik chik repair it HEAR</p>
       <div className="flex space-x-4 mb-6">
         <button className="text-purple-500 border-b-2 border-purple-500 pb-2">General settings</button>
         <button className="text-zinc-500 pb-2">Subscription</button>

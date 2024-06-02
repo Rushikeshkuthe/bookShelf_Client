@@ -22,6 +22,7 @@ const LandingPage = () => {
             <span className='text-3xl font-bold  relative z-20 drop-shadow-2xl'>Bookshelf</span>
           </div>
           <h1 className='text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-200 to-red-500'>Shelf the Best Reads</h1>
+          <h3>😀😁😂🤣😃😄😅😆😊😋😎😍😘😙🥲😚☺️🙂🤗🤩🤔🫡🤨😐😑😶🫥😶‍🌫️🙄😏😣😥😮🤐😯😪🥱😫😴😌😛😜😝😒🤤😓😔😕🫤🙃🫠🤑😲☹️🙁😖😞😟😤😭😢😦😧😨😩🤯😬😮‍💨😰😱🥵🥶😳😵🤪😵‍💫🥴😠😡😷🤬🤒🤕🤢🤮🤧😇🥺🤠🤡💩😺😸😹🙈🐱🐺🤬🤬🤬</h3>
           <button
             className='bg-white text-black py-2 px-4 rounded mt-4 font-bold hover:ml-4 transition-all duration-300'
             onClick={() => {

@@ -44,6 +44,11 @@ import Sidebar from "./component/Sidebar";
 import Settings from "./pages/Settings";
 import Books from "./pages/Books";
 import Reviews from "./pages/Reviews";
+import Manga from "./pages/Manga";
+import Kids from "./pages/Kids";
+import Latest from "./pages/Latest";
+import Recent from "./pages/Recent";
+import Favorite from "./pages/Favorite";
 
 function App() {
   const location = useLocation();
@@ -61,6 +66,11 @@ function App() {
           <Route path="/books" element={<Books />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/kids" element={<Kids />} />
+          <Route path="/latest" element={<Latest />} />
+          <Route path="/manga" element={<Manga />} />
+          <Route path="/recent" element={<Recent />} />
+          <Route path="/fav" element={<Favorite/>} />
         </Routes>
       </div>
     </div>

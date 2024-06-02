@@ -7,6 +7,8 @@ import { FiSettings, FiStar, FiClock } from 'react-icons/fi';
 import { TbMoodKid } from "react-icons/tb";
 import { GiNinjaStar } from "react-icons/gi";
 import { MdLogout } from "react-icons/md";
+import Login from '../pages/Login';
+import Logout from '../pages/Logout';
 
 const containerClasses = "flex items-center p-2 text-zinc-300 hover:bg-zinc-700 rounded-lg";
 const iconClasses = "h-5 w-5 mr-3";
@@ -47,11 +49,12 @@ const Nav = () => {
     { name: 'Manga', icon: <GiNinjaStar className={iconClasses} />, path: '/manga' },
     { name: 'Kids', icon: <TbMoodKid className={iconClasses} />, path: '/kids' },
     { name: 'Reviews', icon: <FaFileAlt className={iconClasses} />, path: '/reviews' },
+    
   ];
 
   const teams = [
     { name: 'Recent', icon: <FiClock className={iconClasses} />, path: '/recent' },
-    { name: 'Favorite', icon: <FiStar className={iconClasses} />, path: '/favorite' },
+    { name: 'Favorite', icon: <FiStar className={iconClasses} />, path: '/fav' },
     { name: 'Settings', icon: <FiSettings className={iconClasses} />, path: '/settings' },
   ];
 
@@ -87,9 +90,9 @@ const Nav = () => {
 
 const Footer = () => {
   return (
-    <div className="flex items-center p-4 mt-auto">
-      <MdLogout className={iconClasses} />
-      <span className='ml-2'>Logout</span>
+    <div className="flex p-4  ">
+      
+      <span className='ml-2'><Logout/></span>
     </div>
   );
 };

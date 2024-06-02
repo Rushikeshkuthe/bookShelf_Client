@@ -171,6 +171,7 @@ function Reviews() {
         <spam className='text-white font-bold text-9xl '>
                       Reviews 🤔
                     </spam>
+                    <p className="text-zinc-400 mt-14">Intresting Bak Bak i should take a part</p>    
         </div>
       <div className="w-3/4 mx-auto mt-20">
         {reviews.map((review, index) => (

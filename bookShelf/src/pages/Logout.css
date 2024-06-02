@@ -1,0 +1,12 @@
+/* Logout.css */
+
+.logout-button {
+    position: relative;
+    z-index: 1; /* Initial z-index */
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.logout-button:hover {
+    transform: translateY(-5px); /* Move the button 5px up on hover */
+    z-index: 2; /* Increase z-index on hover to ensure it's above other elements */
+}
