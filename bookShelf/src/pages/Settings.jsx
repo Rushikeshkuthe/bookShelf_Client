@@ -11,12 +11,12 @@ function Settings() {
   return (
     <div className="bg-black text-white min-h-screen p-6">
       {/* <h1 className="text-3xl font-bold mb-6">Account Settings</h1> */}
-      <span className='text-white font-bold text-9xl'>
+      <span className='text-white font-bold text-7xl '>
             Settings 😒🤦‍♀️
           </span>
-          <p className="text-zinc-400">Too Much chik chik repair it HEAR</p>
+          <p className="text-zinc-400 mt-4">Too Much chik chik repair it HEAR</p>
       <div className="flex space-x-4 mb-6">
-        <button className="text-purple-500 border-b-2 border-purple-500 pb-2">General settings</button>
+        <button className="text-purple-500 border-b-2 b order-purple-500 pb-2">General settings</button>
         <button className="text-zinc-500 pb-2">Subscription</button>
       </div>
       <div className="space-y-6">

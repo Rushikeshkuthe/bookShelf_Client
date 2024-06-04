@@ -49,6 +49,7 @@ import Kids from "./pages/Kids";
 import Latest from "./pages/Latest";
 import Recent from "./pages/Recent";
 import Favorite from "./pages/Favorite";
+import PrivateRoute from "./pages/PrivateRoute";
 
 function App() {
   const location = useLocation();
@@ -62,15 +63,33 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/dash" element={<Dashboard />} />
-          <Route path="/books" element={<Books />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/kids" element={<Kids />} />
-          <Route path="/latest" element={<Latest />} />
-          <Route path="/manga" element={<Manga />} />
-          <Route path="/recent" element={<Recent />} />
-          <Route path="/fav" element={<Favorite/>} />
+          <Route path="/dash" element={
+          <PrivateRoute> 
+            <Dashboard />
+            </PrivateRoute>} />
+          <Route path="/books" element={
+            <PrivateRoute> 
+          <Books />
+          </PrivateRoute>
+          } />
+          <Route path="/reviews" element={
+          <PrivateRoute>  <Reviews /></PrivateRoute>
+        } />
+          <Route path="/settings" element={
+          <PrivateRoute> <Settings /></PrivateRoute>
+         } />
+          <Route path="/kids" element={
+          <PrivateRoute><Kids /></PrivateRoute>} />
+          <Route path="/latest" element={
+          <PrivateRoute> <Latest /></PrivateRoute>
+         } />
+          <Route path="/manga" element={
+          <PrivateRoute>  <Manga /></PrivateRoute>
+        } />
+          <Route path="/recent" element={
+          <PrivateRoute><Recent /></PrivateRoute>} />
+          <Route path="/fav" element={
+          <PrivateRoute><Favorite/></PrivateRoute>} />
         </Routes>
       </div>
     </div>

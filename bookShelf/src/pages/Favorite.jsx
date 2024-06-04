@@ -286,11 +286,12 @@ function Favorites() {
     <div className="bg-black text-white min-h-screen p-4">
            <div className="flex items-center space-x-4 mb-6">
         <div>
-        <span className='text-white font-bold text-9xl'>
+        <span className='text-white font-bold text-7xl'>
             Favorite 😍👧🏼
           </span>
           <p className="text-zinc-400">Choose for your fav one (32 Books)</p>
         </div>
+        
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {profiles.map(profile => (

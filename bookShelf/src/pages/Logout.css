@@ -1,8 +1,9 @@
 /* Logout.css */
 
 .logout-button {
+    padding-right: 5px;
     position: relative;
-    z-index: 1; /* Initial z-index */
+    z-index: 100; /* Initial z-index */
     transition: transform 0.3s ease; /* Smooth transition effect */
 }
 
