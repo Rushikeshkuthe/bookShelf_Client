@@ -1,11 +1,14 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { motion } from 'framer-motion';
 import { Button, Input } from 'antd';
+
 
 // Shared TailwindCSS classes
 const textZinc900DarkZinc100 = "text-zinc-900 dark:text-zinc-100";
 const bgWhiteDarkZinc800 = "bg-white dark:bg-zinc-800";
 const textZinc600DarkZinc400 = "text-zinc-600 dark:text-zinc-400";
+
+
 
 // Book Card Component
 function BookCard({ title, author, imageUrl, altText,rating }) {
@@ -26,7 +29,11 @@ function BookCard({ title, author, imageUrl, altText,rating }) {
                 transition={{ type: 'spring', stiffness: 300 }}
                 className='mt-2 w-60'
             >
-                <Button className='text-base font-bold'>View</Button>
+                <Button
+            className="text-base font-bold"
+          >
+            View
+          </Button>
             </motion.div>
         </div>
     </motion.div>
@@ -59,7 +66,39 @@ function Section({ title, children }) {
   );
 }
 
+function Banner() {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [
+    "https://source.unsplash.com/featured/?book",
+    "https://source.unsplash.com/featured/?reading",
+    "https://source.unsplash.com/featured/?library",
+    "https://source.unsplash.com/featured/?knowledge",
+  ];
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImage((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(intervalId); // Cleanup on unmount
+  }, []);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex justify-center items-center h-52 bg-emerald-500 text-white rounded-lg mb-8 overflow-auto"
+    >
+      <img
+        src={images[currentImage]}
+        alt="Banner Image"
+        className="w-full h-full object-cover rounded-lg"
+      />
+     
+    </motion.div>
+  );
+}
 
 
 // Main Component
@@ -84,6 +123,9 @@ function Dashboard() {
             enterButton
           />
         </div>
+      </div>
+      <div className='mt-5'>
+      <Banner />
       </div>
      
       <div className="max-w-7xl mx-auto">
