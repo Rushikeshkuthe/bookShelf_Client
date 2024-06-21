@@ -16,7 +16,6 @@ import Recent from "./pages/Recent";
 import Favorite from "./pages/Favorite";
 import PrivateRoute from "./pages/PrivateRoute";
 import SingleBook from "./pages/SingleBook";
-import BooksUpload from "./pages/BooksUpload";
 import SubscriptionPlan from "./pages/SubscriptionPlan";
 import AddBook from "./pages/AddBooks";
 
