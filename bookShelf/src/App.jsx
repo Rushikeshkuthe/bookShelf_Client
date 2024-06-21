@@ -18,6 +18,7 @@ import PrivateRoute from "./pages/PrivateRoute";
 import SingleBook from "./pages/SingleBook";
 import BooksUpload from "./pages/BooksUpload";
 import SubscriptionPlan from "./pages/SubscriptionPlan";
+import AddBook from "./pages/AddBooks";
 
 function App() {
   const location = useLocation();
@@ -31,7 +32,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/bookUp" element={<BooksUpload />} />
+          <Route path="/bookUp" element={<AddBook/>} />
           <Route path="/dash" element={
           <PrivateRoute> 
             <Dashboard />

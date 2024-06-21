@@ -36,7 +36,7 @@ const Header = () => {
     <div className="flex flex-col flex-grow p-4">
       <div className="flex items-center mb-5 flex-col">
         <img src={logo} alt="Logo" className="h-8 w-8" />
-        <span className='text-lg font-bold'>Bookself</span>
+        <span className='text-lg font-bold'>Bookshelf</span>
       </div>
       <div className="flex items-center">
         <img src={avatar} alt="User Avatar" className="h-14 w-14 rounded-full mr-3" />

@@ -124,7 +124,7 @@ const Books = () => {
     try {
       const response = await apiGET('v1/book/getAllBook');
       if (response.data.status === 200) {
-        setBookData(response.data.data); // Assuming response.data.data is an array of books
+        setBookData(response.data.data);
       } else {
         console.error('Something went wrong');
       }
