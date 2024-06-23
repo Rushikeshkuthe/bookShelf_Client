@@ -1,20 +1,24 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import {message } from "antd";
+import {Select, message } from "antd";
 
 const AddBook = () => {
     const [bookData, setBookData] = useState({
         bookname: '',
         author: '',
         rating: '',
-        category: '',
+        category: 'Sci-Fi',
         pages: '',
         published: '',
         ISBN: '',
+        favorite: false,
+        latest:false,
         pdf: null,
-        image: null
+        image: null,
+         bookSummary: ''
     });
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,6 +33,14 @@ const AddBook = () => {
         setBookData(prevState => ({
             ...prevState,
             [name]: files[0]
+        }));
+    };
+    
+    const handleToggleChange = (e) => {
+        const { name, checked } = e.target;
+        setBookData(prevState => ({
+            ...prevState,
+            [name]: checked
         }));
     };
 
@@ -55,18 +67,25 @@ const AddBook = () => {
         }
     };
 
+    const handleCategoryChange = (value) => {
+        setBookData(prevState => ({
+            ...prevState,
+            category: value
+        }));
+    };
+
     return (
-        <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="min-h-screen bg-gray-900 flex items-center justify-center p-5">
             <form onSubmit={handleSubmit} className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
                 <h1 className="text-2xl text-white mb-6 text-center">Add a New Book</h1>
                 {[
                     { label: 'Book Name', name: 'bookname', type: 'text' },
                     { label: 'Author', name: 'author', type: 'text' },
                     { label: 'Rating', name: 'rating', type: 'number' },
-                    { label: 'Category', name: 'category', type: 'text' },
                     { label: 'Pages', name: 'pages', type: 'number' },
                     { label: 'Published', name: 'published', type: 'date' },
-                    { label: 'ISBN', name: 'ISBN', type: 'text' }
+                    { label: 'ISBN', name: 'ISBN', type: 'text' },
+                   
                 ].map(({ label, name, type }) => (
                     <div key={name} className="mb-4">
                         <label className="block text-gray-300 mb-2">{label}:</label>
@@ -80,6 +99,25 @@ const AddBook = () => {
                         />
                     </div>
                 ))}
+                  <div className="mb-4">
+                    <label className="block text-gray-300 mb-2">Category:</label>
+                    <Select
+                        value={bookData.category}
+                        onChange={handleCategoryChange}
+                        className="w-full bg-gray-700 text-white"
+                        required
+                    >
+                        <Option value="Sci-Fi">Sci-Fi</Option>
+                        <Option value="Fantasy">Fantasy</Option>
+                        <Option value="Drama">Drama</Option>
+                        <Option value="Business">Business</Option>
+                        <Option value="Education">Education</Option>
+                        <Option value="Kids">Kids</Option>
+                        <Option value="Manga">Manga</Option>
+                        <Option value="Philosophy">Philosophy</Option>
+                        <Option value="Geography">Geography</Option>
+                    </Select>
+                </div>
                 <div className="mb-4">
                     <label className="block text-gray-300 mb-2">PDF:</label>
                     <input
@@ -99,6 +137,27 @@ const AddBook = () => {
                         className="w-full text-gray-300 focus:outline-none"
                         required
                     />
+                </div>
+                <div className=" flex items-center gap-2 mb-2">
+                    <label className="block text-gray-300 ">Latest:</label>
+                    <input
+                        type="checkbox"
+                        name="latest"
+                        checked={bookData.latest}
+                        onChange={handleToggleChange}
+                        // className="w-full text-gray-300 focus:outline-none"
+                    />
+                </div>
+                <div className=" flex items-center gap-2 mb-2">
+                    <label className="block text-gray-300 ">Book Info</label>
+                    <textarea
+                                name="bookSummary"
+                                value={bookData.bookSummary}
+                                onChange={handleChange}
+                                className="w-full p-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                rows="4"
+                                required
+                            />
                 </div>
                 <button
                     type="submit"

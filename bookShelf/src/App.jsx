@@ -59,8 +59,11 @@ function App() {
           <PrivateRoute><Recent /></PrivateRoute>} />
           <Route path="/fav" element={
           <PrivateRoute><Favorite/></PrivateRoute>} />
-           <Route path="/singlebook" element={
-          <PrivateRoute><SingleBook/></PrivateRoute>} />
+           <Route path="/singlebook/:id" element={  // Define the route parameter for SingleBook
+            <PrivateRoute> 
+              <SingleBook />
+            </PrivateRoute>
+          } />
           <Route path="/sub" element={
           <PrivateRoute><SubscriptionPlan/></PrivateRoute>} />
         </Routes>
