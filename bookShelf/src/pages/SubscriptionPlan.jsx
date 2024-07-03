@@ -22,7 +22,7 @@ const SubscriptionPlan = () => {
       subscriptions: [
         { title: "Super", price: "$409/Year", features: ["✔️", "❌", "2", "Lorem ipsum", "Lorem ipsum"] },
         { title: "Premium", price: "$109/Year", features: ["✔️", "✔️", "4", "Lorem ipsum", "Lorem ipsum"] },
-        { title: "Premium", price: "$99/Year" } // This seems like a duplicated title, adjusted for example purposes
+        { title: "Premium", price: "$99/Year" }
       ]
     }
   ];

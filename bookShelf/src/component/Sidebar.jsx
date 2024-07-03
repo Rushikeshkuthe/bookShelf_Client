@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { motion } from 'framer-motion';
 import logo from '../assets/logo.png';
 import avatar from '../assets/avatar.jpg';
@@ -17,6 +17,13 @@ const iconClasses = "h-5 w-5 mr-3";
 const activeClasses = "bg-zinc-700";
 
 const Sidebar = () => {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
   return (
     <motion.div
       initial={{ x: '-100%' }}
@@ -24,14 +31,14 @@ const Sidebar = () => {
       transition={{ type: 'spring', stiffness: 80 }}
       className="min-h-screen bg-zinc-900 text-white flex flex-col w-1/5 px-3"
     >
-      <Header />
+      <Header user={user}/>
       <Nav />
       <Footer />
     </motion.div>
   );
 };
 
-const Header = () => {
+const Header =  ({ user }) => {
   return (
     <div className="flex flex-col flex-grow p-4">
       <div className="flex items-center mb-5 flex-col">
@@ -39,9 +46,9 @@ const Header = () => {
         <span className='text-lg font-bold'>Bookshelf</span>
       </div>
       <div className="flex items-center">
-        <img src={avatar} alt="User Avatar" className="h-14 w-14 rounded-full mr-3" />
+      <img src={user?.avatar} alt="User Avatar" className="h-14 w-14 rounded-full mr-3" />
         <div>
-          <p className="text-sm font-medium">Tom Cook</p>
+        <p className="text-sm font-medium">{user?.username}</p>
         </div>
       </div>
     </div>

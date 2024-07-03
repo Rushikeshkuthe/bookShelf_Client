@@ -1,12 +1,10 @@
-
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button, Input } from 'antd';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import { apiGET } from '../utils/apiHelpers';
 
-const Books = ({ bookInfo }) => {
+const Books = () => {
 
   const hoverUnderline = 'hover:underline';
 const textCenter = 'text-center';

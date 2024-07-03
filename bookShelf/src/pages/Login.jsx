@@ -18,7 +18,6 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Check if token exists on mount to redirect to dashboard
         const token = localStorage.getItem('token');
         if (token) {
             navigate('/dash');
@@ -32,12 +31,11 @@ const Login = () => {
             [name]: value
         });
     };
-
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError('');
-
+    
         try {
             const { email, password } = formValues;
             const response = await apiPOST(`v1/auth/login`, {
@@ -45,8 +43,14 @@ const Login = () => {
                 password,
             });
 
+            console.log("RESPONSE",response.data.data.accessToken)
+    
             if (response.status === 200) {
-                localStorage.setItem('token', response.data.token); // Save token to local storage
+                const { username, _id: id, avatar,email } = response.data.data;
+                const user = { username, id, avatar,email };
+                localStorage.setItem('user', JSON.stringify(user));
+                const storedUser = JSON.parse(localStorage.getItem('user'));
+                localStorage.setItem('token',response.data.data.accessToken); 
                 setFormValues({
                     email: '',
                     password: '',
@@ -55,7 +59,7 @@ const Login = () => {
             } else {
                 setError(response.data.msg || 'Login failed. Please try again.');
             }
-
+    
         } catch (error) {
             setError('An error occurred during login. Please try again.');
             console.error('An error occurred during login:', error);
@@ -64,6 +68,7 @@ const Login = () => {
         }
     };
 
+    
     return (
         <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${bg})` }}>
             <div className="absolute inset-0 bg-black opacity-50"></div>
