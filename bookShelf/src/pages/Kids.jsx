@@ -1,6 +1,6 @@
 import React , { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { apiGET } from '../utils/apiHelpers';
+import { apiGET,apiPUT } from '../utils/apiHelpers';
 import { Input, message  } from 'antd';
 
 // Constants for repeated class names
@@ -8,6 +8,12 @@ const hoverUnderline = 'hover:underline';
 const textCenter = 'text-center';
 const mxAutoMb4 = 'mx-auto mb-4';
 const imgClass = 'transform transition duration-300 hover:scale-105 hover:shadow-lg';
+
+const HeartIcon = ({ filled }) => (
+  <svg className={`w-6 h-6 ${filled ? 'text-red-500' : 'text-white'}`} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+  </svg>
+);
 
 const Kids = () => {
  const [mangaItems, setMangaItems] = useState([]);
@@ -31,6 +37,26 @@ const Kids = () => {
 
     fetchBooks();
   }, []);
+
+  const toggleFavorite = async (book) => {
+    try {
+      const updatedFavorite = book.favorite === "true" ? "false" : "true";
+      const response = await apiPUT(`v1/book/updateBook/${book._id}`, {
+        favorite: updatedFavorite
+      });
+      if (response.status === 200) {
+        setMangaItems(prevBooks =>
+          prevBooks.map(b =>
+            b._id === book._id ? { ...b, favorite: updatedFavorite } : b
+          )
+        );
+      } else {
+        message.error('Failed to update favorite status');
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
+  };
 
   return (
     <div className="bg-black text-white min-h-screen p-4">
@@ -88,6 +114,14 @@ const Kids = () => {
               <h3 className="font-bold">{item.bookname}</h3>
               <p>{item.author}</p>
               <span className="text-yellow-500">{item.rating}</span>
+              <div>
+              <button
+                    className='bg-none'
+                    onClick={() => toggleFavorite(item)}
+                  >
+                    <HeartIcon filled={item.favorite === "true"} />
+                  </button>
+                  </div>
             </motion.div>
           ))}
         </div>

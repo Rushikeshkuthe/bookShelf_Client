@@ -66,7 +66,7 @@ const Nav = () => {
   ];
 
   const teams = [
-    { name: 'Recent', icon: <FiClock className={iconClasses} />, path: '/recent' },
+    // { name: 'Recent', icon: <FiClock className={iconClasses} />, path: '/recent' },
     { name: 'Favorite', icon: <FiStar className={iconClasses} />, path: '/fav' },
     { name: 'Settings', icon: <FiSettings className={iconClasses} />, path: '/settings' },
   ];

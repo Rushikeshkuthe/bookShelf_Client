@@ -11,7 +11,7 @@ const flexBetweenClass = "flex items-center justify-between";
 const textZinc400TextSm = "text-zinc-400 text-sm";
 const textRed500FontSemibold = "text-red-500 font-semibold";
 
-// Review component for individual book entries
+
 function ReviewItem({ title, rating, description, time, price, imageUrl }) {
   return (
     <motion.div
@@ -32,7 +32,7 @@ function ReviewItem({ title, rating, description, time, price, imageUrl }) {
       <p className={textZinc300Mb2}>{description}</p>
       <div className={flexBetweenClass}>
         <span className={textZinc400TextSm}>{time}</span>
-        <span className={textRed500FontSemibold}><button>Reply</button></span>
+        {/* <span className={textRed500FontSemibold}><button>Reply</button></span> */}
       </div>
     </motion.div>
   );
